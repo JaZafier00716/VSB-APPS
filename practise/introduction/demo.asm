@@ -11,7 +11,7 @@ main:
   ; Function body
 
   ; printf(msg);
-  xor eax, eax  ; Zeroing eax
+  mov eax, 0  ; Zeroing eax eax = 0
   lea rdi, [msg] ;first parameter
   call printf
 
@@ -53,4 +53,4 @@ section .data
     db "%d", 0
 
 section .bss
-    number resb 4 ; Reserve 4 bytes
+    number resd 1 ; Reserve 4 bytes

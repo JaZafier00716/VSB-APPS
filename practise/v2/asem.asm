@@ -53,9 +53,6 @@ loop_banknotes:
   mov r15d, [banknote_values + r13d*4]    ; Get current banknote
   mov r8d, 0    ; Set init banknote count to zero
 
-  ; mov eax, 0
-  ; lea rdi, [ok]
-  ; call printf
   mov edi, r15d   ; Move banknote value into function params
   mov esi, r12d   ; Move init value into function params
   call count_banknote
