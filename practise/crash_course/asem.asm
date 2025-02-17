@@ -127,43 +127,43 @@ section .text
 ; 
 ; printf("this is a test %d %d %d\n", a, b, c);
 
-extern printf
+; extern printf
 
-section .data
-	msg db "This is a test %d %d %d", 10, 0
-	a db 3
-	b db 5
-	c db 8
+; section .data
+; 	msg db "This is a test %d %d %d", 10, 0
+; 	a db 3
+; 	b db 5
+; 	c db 8
 
-section .text
+; section .text
 
-main:
-	mov eax, [c]
-	push eax
-	push [b]
-	push [a]
-	push msg
-	; It has to be in reverse order, because it will be poped in reversed order (bottom up)
-	call printf
+; main:
+; 	mov eax, [c]
+; 	push eax
+; 	push [b]
+; 	push [a]
+; 	push msg
+; 	; It has to be in reverse order, because it will be poped in reversed order (bottom up)
+; 	call printf
 
-	add esp, 16	;cleaning stack, because each stack address is 4B in size. So 16, because we are pushing 4 variables (each has 4B address)
-printf:
-	push eax
-	push ebx
-	push ecx
-	push edx
+; 	add esp, 16	;cleaning stack, because each stack address is 4B in size. So 16, because we are pushing 4 variables (each has 4B address)
+; printf:
+; 	push eax
+; 	push ebx
+; 	push ecx
+; 	push edx
 
-	push ebp
-	mov ebp, esp
+; 	push ebp
+; 	mov ebp, esp
 	
-	mov eax, esp + 28 (we have to move down the stack by 4 addresses in order to access our data to be printed
-	; [printing]
+; 	mov eax, esp + 28 (we have to move down the stack by 4 addresses in order to access our data to be printed
+; 	; [printing]
 
-	pop ebp
-	pop edx
-	pop ecx
-	pop ebx
-	pop eax
+; 	pop ebp
+; 	pop edx
+; 	pop ecx
+; 	pop ebx
+; 	pop eax
 
 	
 
