@@ -55,5 +55,5 @@ cut:
 heslo_to_char:
     mov rdi, QWORD[g_heslo]
     mov QWORD[g_char_heslo], rdi
-
+    mov [g_char_heslo+8], BYTE 0
     ret

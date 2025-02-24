@@ -18,7 +18,7 @@ char g_char_ahoj[] = "Ahoj.";
 long g_pole[] = {33, 44, 0x66554433221100};
 int g_int_1, g_int_2;
 long g_heslo = 0x70617373776f7264;
-char g_char_heslo[8];
+char g_char_heslo[9];
 void switch_dot();
 void switch_first_second();
 void cut();
