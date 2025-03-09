@@ -98,18 +98,17 @@ nejcastejsi:
             jmp .loop
 
     .end:
-        mov r8, 1 ; i = 1
+        xor r8, r8  ; i = 0
+        xor rax, rax ; ret = 0
 
-        xor rax, rax ; max_index = 0
-
-        .for2: ; find max
+        .for2:
             cmp r8, 256
-            jge .quit
+            jge .end
 
-            mov r9d, DWORD [vyskyty + rax*4] ; max = vyskyty[0]
+            mov r9d, DWORD [vyskyty + rax * 4]      ; max_index
 
-            cmp   r9d, DWORD [vyskyty + r8*4] ; max < vyskyty[i]
-            CMOVl rax, r8                     ; max = vyskyty[i]
+            cmp r9d, DWORD [vyskyty + r8 * 4]       ; if pole[i] > max_index
+            CMOVl rax, r8
 
             inc r8
             jmp .for2
